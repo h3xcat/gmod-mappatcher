@@ -1,0 +1,12 @@
+{
+	"title"		:	"MapPatcher",
+	"type"		:	"ServerContent",
+	"tags"		:	[ "roleplay", "build" ],
+	"ignore"	:
+	[
+		"LICENSE",
+		"README.md",
+		"icon.jpg",
+		".git*"
+	]
+}
