@@ -1,6 +1,6 @@
 {
 	"title"		:	"MapPatcher",
-	"type"		:	"ServerContent",
+	"type"		:	"tool",
 	"tags"		:	[ "roleplay", "build" ],
 	"ignore"	:
 	[
