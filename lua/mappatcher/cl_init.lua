@@ -1,10 +1,3 @@
---[[ Copyright (C) Edgaras Fiodorovas - All Rights Reserved
-   - Unauthorized copying of this file, via any medium is strictly prohibited
-   - Proprietary and confidential
-   - Written by Edgaras Fiodorovas <edgarasf123@gmail.com>, November 2017
-   -]]
-   
---------------------------------------------------------------------------------
 local BufferInterface = MapPatcher.Libs.BufferInterface
 
 MapPatcher.CVarDraw = CreateConVar( "mappatcher_draw", "0", false, false )

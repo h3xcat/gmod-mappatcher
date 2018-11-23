@@ -1,11 +1,3 @@
---[[ Copyright (C) Edgaras Fiodorovas - All Rights Reserved
-   - Unauthorized copying of this file, via any medium is strictly prohibited
-   - Proprietary and confidential
-   - Written by Edgaras Fiodorovas <edgarasf123@gmail.com>, November 2017
-   -]]
-   
---------------------------------------------------------------------------------
-
 local lib_id =  debug.getinfo( 1, "S" ).short_src
 local luabsp = {}
 

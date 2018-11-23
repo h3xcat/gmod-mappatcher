@@ -1,11 +1,3 @@
---[[ Copyright (C) Edgaras Fiodorovas - All Rights Reserved
-   - Unauthorized copying of this file, via any medium is strictly prohibited
-   - Proprietary and confidential
-   - Written by Edgaras Fiodorovas <edgarasf123@gmail.com>, November 2017
-   -]]
-   
---------------------------------------------------------------------------------
-
 local CATEGORY_NAME = "Map Patcher"
 
 function MapPatcher.ulx_mappatcher( calling_ply )
