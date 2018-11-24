@@ -66,9 +66,7 @@ function Vector2_mt:GetNormalized( )
 end
 
 function Vector2_mt:GetVector( )
-    local v1 = self
-    local l = 1/math.sqrt(v1[1]^2 + v1[2]^2 + v1[3]^2)
-    return Vector(v1[1],v1[2],v1[3])
+    return Vector( self[1], self[2], self[3] )
 end
 
 local function Vector2( x, y, z )
