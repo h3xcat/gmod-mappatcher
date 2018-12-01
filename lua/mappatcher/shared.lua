@@ -1,10 +1,10 @@
 MapPatcher = MapPatcher or {}
 MapPatcher.Config = include("mappatcher/config.lua")
 MapPatcher.Libs = {
-    luabsp          = include "libraries/luabsp.lua",
-    quickhull       = include "libraries/quickhull.lua",
-    BufferInterface = include "libraries/bufferinterface.lua",
-    Stream          = include "libraries/stream.lua",
+    luabsp          = include "lib_luabsp/luabsp.lua",
+    quickhull       = include "lib_quickhull/quickhull.lua",
+    BufferInterface = include "lib_bufferinterface/bufferinterface.lua",
+    Stream          = include "lib_stream/stream.lua",
 }
 
 MapPatcher.Tools = {}

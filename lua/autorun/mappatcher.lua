@@ -4,10 +4,10 @@ MsgN( "[MapPatcher] Written by H3xCat (STEAM_0:0:20178582)")
 if SERVER then
     AddCSLuaFile( "skins/mappatcher.lua" )
 
-    AddCSLuaFile( "mappatcher/libraries/luabsp.lua" )
-    AddCSLuaFile( "mappatcher/libraries/quickhull.lua" )
-    AddCSLuaFile( "mappatcher/libraries/bufferinterface.lua" )
-    AddCSLuaFile( "mappatcher/libraries/stream.lua" )
+    AddCSLuaFile( "mappatcher/lib_luabsp/luabsp.lua" )
+    AddCSLuaFile( "mappatcher/lib_quickhull/quickhull.lua" )
+    AddCSLuaFile( "mappatcher/lib_bufferinterface/bufferinterface.lua" )
+    AddCSLuaFile( "mappatcher/lib_stream/stream.lua" )
 
     AddCSLuaFile( "mappatcher/editor/screen.lua" )
     AddCSLuaFile( "mappatcher/editor/menu.lua" )
