@@ -2,9 +2,9 @@
 An easy-to-use tool which allows server staff to patch various exploits within maps.
 Multiple exploits exist in maps that allow players to get out of the map when they're not supposed to. This tool allows for server staff to patch such exploits in less than a minute. Aside from exploit patching, this tool also allows you to block off parts of a map using forcefields, or setup teleport points, making your map one of a kind.
 
-## How to checkout
-This repo uses submodules so you have to use `git` command to checkout.
-`git clone git@github.com:edgarasf123/gmod-mappatcher.git --recurse-submodules`
+## To Checkout
+This repo uses submodules so you have to use `git` command to checkout. Using the "Download ZIP" will not give you the complete addon!
+**Command:** `git clone git@github.com:edgarasf123/gmod-mappatcher.git --recurse-submodules`
 
 ## Steam Workshop
 
