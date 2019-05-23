@@ -3,7 +3,7 @@
 	url = https://github.com/edgarasf123/gmod-luabsp.git
 [submodule "lua/mappatcher/lib_stream"]
 	path = lua/mappatcher/lib_stream
-	url = https://github.com/:edgarasf123/gmod-stream.git
+	url = https://github.com/edgarasf123/gmod-stream.git
 [submodule "lua/mappatcher/lib_bufferinterface"]
 	path = lua/mappatcher/lib_bufferinterface
 	url = https://github.com/edgarasf123/gmod-bufferinterface.git
