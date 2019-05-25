@@ -5,7 +5,7 @@ Multiple exploits exist in maps that allow players to get out of the map when th
 ## To Checkout
 This repo uses submodules so you have to use `git` command to checkout. Using the "Download ZIP" will not give you the complete addon!
 
-**Command:** `git clone git@github.com:edgarasf123/gmod-mappatcher.git --recurse-submodules`
+**Command:** `git clone https://github.com/edgarasf123/gmod-mappatcher.git --recurse-submodules`
 
 ## Steam Workshop
 
