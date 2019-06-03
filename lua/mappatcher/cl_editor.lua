@@ -6,6 +6,7 @@ MapPatcher.Editor = MapPatcher.Editor or {}
 local Editor = MapPatcher.Editor
 
 Editor.Tools = {
+    "custom",
     "playerclip",
     "propclip",
     "bulletclip",

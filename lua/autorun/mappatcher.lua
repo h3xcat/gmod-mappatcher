@@ -14,10 +14,13 @@ if SERVER then
     
     AddCSLuaFile( "mappatcher/config.lua" )
     AddCSLuaFile( "mappatcher/shared.lua" )
+    AddCSLuaFile( "mappatcher/groups.lua" )
     AddCSLuaFile( "mappatcher/cl_init.lua" )
     AddCSLuaFile( "mappatcher/cl_editor.lua" )
+    AddCSLuaFile( "mappatcher/groups.lua" )
     
     include( "mappatcher/shared.lua" )
+    include( "mappatcher/groups.lua" )
     include( "mappatcher/datafile.lua" )
     include( "mappatcher/init.lua" )
 elseif CLIENT then
@@ -27,6 +30,7 @@ elseif CLIENT then
     include( "mappatcher/editor/menu.lua" )
 
     include( "mappatcher/shared.lua" )
+    include( "mappatcher/groups.lua" )
     include( "mappatcher/cl_init.lua" )
     include( "mappatcher/cl_editor.lua" )
 end

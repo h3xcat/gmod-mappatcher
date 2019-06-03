@@ -52,6 +52,7 @@ end
 
 function TOOL:ObjectCreated()
     self.points = {}
+    self.color = Color(255,255,255)
 end
 
 function TOOL:LeftClick( pos )
@@ -89,7 +90,7 @@ function TOOL:BuildMesh( force )
 
     local points = self.points
     if #points >= 3 then
-        local succ, new_points, new_mesh = quickhull.BuildMeshFromPoints( points )
+        local succ, new_points, new_mesh = quickhull.BuildMeshFromPoints( points, nil, self.color )
         if succ then
             self.render_mesh = new_mesh
         end

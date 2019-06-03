@@ -4,9 +4,9 @@
 	"tags"		:	[ "roleplay", "build" ],
 	"ignore"	:
 	[
-		"LICENSE",
-		"README.md",
-		"icon.jpg",
-		".git*"
+		"*LICENSE",
+		"*README.md",
+		"*icon.jpg",
+		"*.git*"
 	]
 }
