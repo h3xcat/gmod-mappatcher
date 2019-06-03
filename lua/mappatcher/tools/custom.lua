@@ -72,16 +72,19 @@ function TOOL:EntSetup( ent )
 
         ent:SetRenderBounds( min, max )
         
-        ent.snd_forcefield_loop = "mappatcher_forcefield_loop_"..(ent:EntIndex())
-        sound.Add( {
-            name = "mappatcher_forcefield_loop_"..(ent:EntIndex()),
-            channel = CHAN_AUTO,
-            volume = 0.5,
-            level = 55,
-            pitch = 100,
-            sound = "ambient/energy/force_field_loop1.wav"
-        } )
-        ent:EmitSound( ent.snd_forcefield_loop )
+
+        if self.data.texture == "forcefield" then
+            ent.snd_forcefield_loop = "mappatcher_forcefield_loop_"..(ent:EntIndex())
+            sound.Add( {
+                name = "mappatcher_forcefield_loop_"..(ent:EntIndex()),
+                channel = CHAN_AUTO,
+                volume = 0.5,
+                level = 55,
+                pitch = 100,
+                sound = "ambient/energy/force_field_loop1.wav"
+            } )
+            ent:EmitSound( ent.snd_forcefield_loop )
+        end
     end
 end
 
