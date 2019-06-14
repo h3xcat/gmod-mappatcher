@@ -1,12 +1,12 @@
 [submodule "lua/mappatcher/lib_luabsp"]
 	path = lua/mappatcher/lib_luabsp
-	url = https://github.com/edgarasf123/gmod-luabsp.git
+	url = https://github.com/h3xcat/gmod-luabsp.git
 [submodule "lua/mappatcher/lib_stream"]
 	path = lua/mappatcher/lib_stream
-	url = https://github.com/edgarasf123/gmod-stream.git
+	url = https://github.com/h3xcat/gmod-stream.git
 [submodule "lua/mappatcher/lib_bufferinterface"]
 	path = lua/mappatcher/lib_bufferinterface
-	url = https://github.com/edgarasf123/gmod-bufferinterface.git
+	url = https://github.com/h3xcat/gmod-bufferinterface.git
 [submodule "lua/mappatcher/lib_quickhull"]
 	path = lua/mappatcher/lib_quickhull
-	url = https://github.com/edgarasf123/gmod-quickhull.git
+	url = https://github.com/h3xcat/gmod-quickhull.git
