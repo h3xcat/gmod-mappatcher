@@ -19,6 +19,7 @@ https://www.youtube.com/watch?v=48pFpVRVkpY
 * Ability to view map playerclip brushes, makes finding map exploits 100 times easier.
 * No resource files, meaning no impact on download time on join. The textures are generated through Lua.
 * Gamemode independent tool, should work with most gamemodes.
+* Translation support.
 
 ## Available Brush Types
 

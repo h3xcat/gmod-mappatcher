@@ -4,7 +4,7 @@ TOOL.Base = "base_brush"
 TOOL.Description = "A combination of various other tools + extra. Probably something I should have done initially."
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(155,155,155,200)
-TOOL.TextureText = "Custom"
+TOOL.TextureText = "#mp_tool_custom"
 
 --------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ function TOOL:SetupObjectPanel( panel )
     local DLabel = vgui.Create( "DLabel", panel )
     DLabel:SetTextColor( Color( 255, 255, 255, 255 ) )
     DLabel:SetPos( 10, 10 )
-    DLabel:SetText( "Name:" )
+    DLabel:SetText( "#mappatcher_custom_name" )
 
     local TextEntry = vgui.Create( "DTextEntry", panel ) 
     TextEntry:SetPos( 50, 10 )
@@ -98,11 +98,11 @@ function TOOL:SetupObjectPanel( panel )
     local lblClip = vgui.Create( "DLabel", panel )
     lblClip:SetTextColor( Color( 255, 255, 255, 255 ) )
     lblClip:SetPos( 10, 10 )
-    lblClip:SetText( "Clip:" )
+    lblClip:SetText( "#mappatcher_custom_clip" )
     
     local cbxClipPlayer = vgui.Create( "DCheckBoxLabel", panel )
     cbxClipPlayer:SetPos( 55, 12 )
-    cbxClipPlayer:SetText( "Player" )
+    cbxClipPlayer:SetText( "#mappatcher_custom_player" )
     cbxClipPlayer:SetValue( self.data.clip_player )
     cbxClipPlayer:SizeToContents()
     cbxClipPlayer.OnChange = function( panel, val )
@@ -111,7 +111,7 @@ function TOOL:SetupObjectPanel( panel )
 
     local cbxClipProps = vgui.Create( "DCheckBoxLabel", panel )
     cbxClipProps:SetPos( 120, 12 )
-    cbxClipProps:SetText( "Props" )
+    cbxClipProps:SetText( "#mappatcher_custom_props" )
     cbxClipProps:SetValue( self.data.clip_prop )
     cbxClipProps:SizeToContents()
     cbxClipProps.OnChange = function( panel, val )
@@ -144,7 +144,7 @@ function TOOL:SetupObjectPanel( panel )
     local lblGroup = vgui.Create( "DLabel", panel )
     lblGroup:SetTextColor( Color( 255, 255, 255, 255 ) )
     lblGroup:SetPos( 10, 35 )
-    lblGroup:SetText( "Block:" )
+    lblGroup:SetText( "#mappatcher_custom_block" )
 
 
     local cmbGroup = vgui.Create( "DComboBox", panel )
@@ -160,7 +160,7 @@ function TOOL:SetupObjectPanel( panel )
 
     local cbxGroupInvert = vgui.Create( "DCheckBoxLabel", panel )
     cbxGroupInvert:SetPos( 170, 37 )
-    cbxGroupInvert:SetText( "Invert" )
+    cbxGroupInvert:SetText( "#mappatcher_custom_invert" )
     cbxGroupInvert:SetValue( self.data.group_invert )
     cbxGroupInvert:SizeToContents()
 
@@ -171,15 +171,15 @@ function TOOL:SetupObjectPanel( panel )
     local lblTexture = vgui.Create( "DLabel", panel )
     lblTexture:SetTextColor( Color( 255, 255, 255, 255 ) )
     lblTexture:SetPos( 10, 60 )
-    lblTexture:SetText( "Texture:" )
+    lblTexture:SetText( "#mappatcher_custom_texture" )
 
 
     local cmbGroup = vgui.Create( "DComboBox", panel )
     cmbGroup:SetPos( 55, 60 )
     cmbGroup:SetSize( 110, 20 )
-    cmbGroup:AddChoice( "Invisible", "", self.data.texture == "")
-    cmbGroup:AddChoice( "Forcefield", "forcefield", self.data.texture == "forcefield")
-    cmbGroup:AddChoice( "Solid", "solid", self.data.texture == "solid")
+    cmbGroup:AddChoice( "#mappatcher_custom_invisible", "", self.data.texture == "")
+    cmbGroup:AddChoice( "#mappatcher_custom_forcefield", "forcefield", self.data.texture == "forcefield")
+    cmbGroup:AddChoice( "#mappatcher_custom_solid", "solid", self.data.texture == "solid")
     cmbGroup.OnSelect = function( panel, index, value, data )
         self.data.texture = data
     end
@@ -189,7 +189,7 @@ function TOOL:SetupObjectPanel( panel )
     local lblColor = vgui.Create( "DLabel", panel )
     lblColor:SetTextColor( Color( 255, 255, 255, 255 ) )
     lblColor:SetPos( 10, 85 )
-    lblColor:SetText( "Color:" )
+    lblColor:SetText( "#mappatcher_custom_color" )
 
     local colorPicker = vgui.Create( "DColorMixer", panel )
     colorPicker:SetPos( 55, 85 )

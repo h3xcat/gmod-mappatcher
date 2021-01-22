@@ -2,7 +2,7 @@ TOOL.Base = "base_brush"
 TOOL.Description = "Works similarly to clip brush, but with addition of forcefield effect."
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(100,100,255,200)
-TOOL.TextureText = "Force Field"
+TOOL.TextureText = "#mp_tool_force_field"
 --------------------------------------------------------------------------------
 function TOOL:EntSetup( ent )
     ent:SetSolidFlags( FSOLID_CUSTOMBOXTEST + FSOLID_CUSTOMRAYTEST )
