@@ -42,11 +42,10 @@ end
 --------------------------------------------------------------------------------
 function TOOL:PreviewPaint( panel, w, h )
     local x, y = panel:LocalToScreen( 0, 0 )
-    cam.Start3D(Vector(-1.7,-1.7,1.2), Angle(30,45,0), 90, x, y, w, h, 0, 1000)
-        render.SetMaterial(MapPatcher.GetToolMaterial(self.ClassName))
-        render.DrawBox( Vector(), Angle(0,RealTime()*40,0), Vector(-1,-1,-1), Vector(1,1,1), Color(255,255,255), true )
-
-        render.DrawWireframeBox( Vector(), Angle(0,RealTime()*40,0), Vector(-1,-1,-1), Vector(1,1,1), Color(255,255,255), true )
+    cam.Start3D(Vector(-25,-25,25), Angle(35,45,0), 90, x, y, w, h)
+		render.SetMaterial(MapPatcher.GetToolMaterial(self.ClassName))
+        render.DrawBox( Vector(), Angle(0,RealTime()*40,0), Vector(-16.5,-16.5,-16.5), Vector(16.5,16.5,16.5), self.TextureColor, true )
+        render.DrawWireframeBox( Vector(), Angle(0,RealTime()*40,0), Vector(-16.5,-16.5,-16.5), Vector(16.5,16.5,16.5), Color(255,255,255), true )
     cam.End3D()
 end
 
@@ -79,14 +78,16 @@ function TOOL:EditorRender( selected )
         end
     end
 
-    render.SetColorMaterial()
-    for i, point in ipairs(self.points) do
-        render.DrawSphere( point, 2, 8, 8, Color(255,0,0,200) )
-    end
+	if selected then
+		render.SetColorMaterial()
+		for i, point in ipairs(self.points) do
+			render.DrawSphere( point, 2, 8, 8, Color(255,0,0,200) )
+		end
 
-    if #self.points == 2 then
-        render.DrawLine( self.points[1], self.points[2] )
-    end
+		if #self.points == 2 then
+			render.DrawLine( self.points[1], self.points[2] )
+		end
+	end
 end
 
 function TOOL:BuildMesh( force )

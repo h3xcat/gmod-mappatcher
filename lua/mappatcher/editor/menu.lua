@@ -34,7 +34,7 @@ function PANEL:Init()
 
     ----------------------------------------------------------------------------
     local title_panel = vgui.Create( "DPanel", self )
-    local mappatcher_menu_title = (language.GetPhrase("#mappatcher.menu.title"))
+    local mappatcher_menu_title = language.GetPhrase("#mappatcher.menu.title") .. " " .. MAPPATCHER_VERSION
     title_panel:SetSize(self:GetWide(),30)
     title_panel:SetPos(0,0)
     function title_panel:Paint( w, h)
@@ -44,7 +44,7 @@ function PANEL:Init()
         surface.SetFont( "MapPatcherMenuTitle" )
         surface.SetTextColor( 255, 255, 255, 255 )
         surface.SetTextPos( 5, 5 )
-        surface.DrawText( mappatcher_menu_title..MAPPATCHER_VERSION )
+        surface.DrawText( mappatcher_menu_title )
     end
     
     local title_close = vgui.Create( "DButton", title_panel )
