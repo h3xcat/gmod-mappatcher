@@ -29,11 +29,18 @@ function Editor.Start( )
         Editor.SetTool(Editor.Tools[1])
     end
     Editor.UpdateMenu( )
+
+    Editor.PVS = Editor.Screen:GetViewPos()
 end
 
 function Editor.Stop( )
     Editor.Enabled = false 
     Editor.StopUI()
+
+    
+    net.Start( "mappatcher_editor_pvs" )
+    net.WriteBool( false )
+    net.SendToServer()
 end
 
 function Editor.LeftClick( pos, ang )
@@ -232,7 +239,7 @@ hook.Add( "PostDrawOpaqueRenderables", "MapPatcherEditor", function( bDrawingDep
     
 
     if Editor.Enabled then
-        -- Draw point
+        -- Draw main cursor point
         render.SetColorMaterial()
         render.DrawSphere( Editor.Screen:GetPointPos(), 4, 8, 8, Color(255,255,0,200) )
     end
@@ -313,4 +320,15 @@ hook.Add( "CalcView", "MapPatcherEditor", function( ply, pos, angles, fov )
     return view
 end )
 
+hook.Add("Think", "MapPatcherEditor", function()
+    if not Editor.Screen or not Editor.Screen:IsVisible() then return end
+    
+    if Editor.PVS:DistToSqr( Editor.Screen:GetViewPos() ) > 1000 then
+        Editor.PVS = Editor.Screen:GetViewPos()
 
+        net.Start( "mappatcher_editor_pvs" )
+        net.WriteBool( true )
+        net.WriteVector( Editor.PVS )
+        net.SendToServer()
+    end
+end)

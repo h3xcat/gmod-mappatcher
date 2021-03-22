@@ -5,6 +5,7 @@ util.AddNetworkString( "mappatcher_editmode_start" )
 util.AddNetworkString( "mappatcher_submit" )
 util.AddNetworkString( "mappatcher_update" )
 util.AddNetworkString( "mappatcher_reload_entities" )
+util.AddNetworkString( "mappatcher_editor_pvs" )
 
 MapPatcher.Brushes = MapPatcher.Brushes or {}
 
@@ -98,4 +99,17 @@ hook.Add( "PostCleanupMap", "MapPatcher", function()
         object:PostCleanupMap( )
     end
     MapPatcher.NetworkObjects( MapPatcher.Objects  )
+end)
+
+MapPatcher.PVS = MapPatcher.PVS or {}
+
+net.Receive( "mappatcher_editor_pvs", function( len, ply )
+    if not MapPatcher.HasAccess( ply ) then return end
+	MapPatcher.PVS[ply] = net.ReadBool() and net.ReadVector() or nil
+end )
+
+hook.Add("SetupPlayerVisibility", "MapPatcher", function(ply, pViewEntity)
+	if IsValid(ply) and MapPatcher.PVS[ply] then
+		AddOriginToPVS(MapPatcher.PVS[ply])
+	end
 end)

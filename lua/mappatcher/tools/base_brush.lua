@@ -78,6 +78,15 @@ function TOOL:EditorRender( selected )
             self.render_mesh:Draw()
         end
     end
+
+    render.SetColorMaterial()
+    for i, point in ipairs(self.points) do
+        render.DrawSphere( point, 2, 8, 8, Color(255,0,0,200) )
+    end
+
+    if #self.points == 2 then
+        render.DrawLine( self.points[1], self.points[2] )
+    end
 end
 
 function TOOL:BuildMesh( force )
