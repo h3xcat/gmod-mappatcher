@@ -2,7 +2,7 @@ TOOL.Base = "base_brush"
 TOOL.Description = "Kill players on touch."
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(255,0,0,200)
-TOOL.TextureText = "#mp_tool_kill"
+TOOL.TextureText = "#mappatcher.tools.kill.title"
 --------------------------------------------------------------------------------
 function TOOL:EntSetup( ent )
     ent:SetSolidFlags( FSOLID_CUSTOMBOXTEST )

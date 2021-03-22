@@ -1,7 +1,7 @@
+MAPPATCHER_VERSION = "2.5.0"
 
-MsgN( "[MapPatcher] Written by H3xCat (STEAM_0:0:20178582)")
-
-
+MsgN( "[MapPatcher] Written by H3xCat (STEAM_0:0:20178582)" )
+MsgN( "[MapPatcher] Version: "..MAPPATCHER_VERSION )
 
 ---------------------------------------------------------------------------
 -- Check if git submodules exist
@@ -75,6 +75,8 @@ if SERVER then
     include( "mappatcher/groups.lua" )
     include( "mappatcher/datafile.lua" )
     include( "mappatcher/init.lua" )
+	
+	resource.AddFile( "resource/localization/en/mappatcher.properties" )
 elseif CLIENT then
     timer.Simple( 0, function() include( "skins/mappatcher.lua" ) end )
 

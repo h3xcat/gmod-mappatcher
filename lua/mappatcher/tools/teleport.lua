@@ -6,7 +6,7 @@ TOOL.Description = "Brush which teleport players when player touches the brush. 
 --------------------------------------------------------------------------------
 
 TOOL.TextureColor = Color(255,100,0,200)
-TOOL.TextureText = "#mp_tool_teleport"
+TOOL.TextureText = "#mappatcher.tools.teleport.title"
 
 --------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ function TOOL:SetupObjectPanel( panel )
     local DLabel = vgui.Create( "DLabel", panel )
     DLabel:SetTextColor( Color( 255, 255, 255, 255 ) )
     DLabel:SetPos( 10, 10 )
-    DLabel:SetText( "#mp_teleport_name" )
+    DLabel:SetText( "#mappatcher.tools.teleport.settings.name" )
 
     local TextEntry = vgui.Create( "DTextEntry", panel ) 
     TextEntry:SetPos( 50, 10 )

@@ -4,7 +4,7 @@ TOOL.Description = "Doesn't let entities pass through that has prop physics (e.g
 --------------------------------------------------------------------------------
 
 TOOL.TextureColor = Color(139,69,19,200)
-TOOL.TextureText = "#mp_tool_prop_clip"
+TOOL.TextureText = "#mappatcher.tools.propclip.title"
 --------------------------------------------------------------------------------
 function TOOL:EntSetup( ent )
     ent:SetSolidFlags( FSOLID_CUSTOMBOXTEST )
