@@ -2,7 +2,7 @@ TOOL.Base = "base_brush"
 TOOL.Description = "Removes any entities that touches this brush. Except for players, in which they would just silently die."
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(255,0,0,200)
-TOOL.TextureText = "Remove"
+TOOL.TextureText = "#mp_tool_remove"
 --------------------------------------------------------------------------------
 function TOOL:EntSetup( ent )
     ent:SetSolidFlags( FSOLID_CUSTOMBOXTEST )

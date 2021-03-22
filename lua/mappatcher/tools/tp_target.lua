@@ -6,7 +6,7 @@ TOOL.Description = "Teleport target used by teleport brush. You can find more de
 --------------------------------------------------------------------------------
 
 TOOL.TextureColor = Color(255,100,0,150)
-TOOL.TextureText = "TP Target"
+TOOL.TextureText = "#mp_tool_tp_target"
 
 --------------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ function TOOL:SetupObjectPanel( panel )
     local DLabel = vgui.Create( "DLabel", panel )
     DLabel:SetTextColor( Color( 255, 255, 255, 255 ) )
     DLabel:SetPos( 10, 10 )
-    DLabel:SetText( "Name:" )
+    DLabel:SetText( "#mp_tp_target_name" )
 
     local TextEntry = vgui.Create( "DTextEntry", panel ) -- create the form as a child of frame
     TextEntry:SetPos( 50, 10 )
