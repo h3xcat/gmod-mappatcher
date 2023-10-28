@@ -1,6 +1,6 @@
 local BufferInterface = MapPatcher.Libs.BufferInterface
 
-MapPatcher.CVarDraw = CreateConVar( "mappatcher_draw", "0", false, false )
+MapPatcher.CVarDraw = CreateClientConVar( "mappatcher_draw", "0", false, false, "should map patcher draw")
 cvars.AddChangeCallback( "mappatcher_draw", function( convar_name, value_old, value_new )
     if not MapPatcher.HasAccess( LocalPlayer() ) then return end
 
