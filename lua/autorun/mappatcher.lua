@@ -1,4 +1,4 @@
-MAPPATCHER_VERSION = "2.5.0"
+MAPPATCHER_VERSION = "2.5.1"
 
 MsgN( "[MapPatcher] Written by H3xCat (STEAM_0:0:20178582)" )
 MsgN( "[MapPatcher] Version: "..MAPPATCHER_VERSION )
