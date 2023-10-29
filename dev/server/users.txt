@@ -1,0 +1,12 @@
+"Users"
+{
+	"superadmin"
+	{
+		"H3xCat"			"STEAM_0:0:20178582"
+	}
+	
+	"admin"
+	{
+	}
+
+}

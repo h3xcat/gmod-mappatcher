@@ -4,9 +4,16 @@
 	"tags"		:	[ "roleplay", "build" ],
 	"ignore"	:
 	[
-		"*LICENSE",
-		"*README.md",
-		"*icon.jpg",
-		"*.git*"
+		"LICENSE",
+		"*/LICENSE",
+		"*/README.md",
+		"README.md",
+		"icon.jpg",
+		"*.gma",
+		"*.git",
+		"*.gitmodules",
+		"*.gitignore",
+		"*.git/*",
+		"dev/*"
 	]
 }
