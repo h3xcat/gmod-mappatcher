@@ -1,6 +1,6 @@
 local BufferInterface = MapPatcher.Libs.BufferInterface
 
-MapPatcher.CVarDraw = CreateClientConVar( "mappatcher_draw", "0", false, false, "should map patcher draw")
+MapPatcher.CVarDraw = CreateClientConVar( "mappatcher_draw", "0", false, false, "Should map patcher draw?" )
 cvars.AddChangeCallback( "mappatcher_draw", function( convar_name, value_old, value_new )
     if not MapPatcher.HasAccess( LocalPlayer() ) then return end
 
@@ -19,7 +19,7 @@ net.Receive( "mappatcher_update", function( len )
         object.ID = object_id
         MapPatcher.Objects[object_id] = object
 
-        local buffer = BufferInterface("net")
+        local buffer = BufferInterface( "net" )
         object:ReadFromBuffer( buffer )
         object:SessionReadFromBuffer( buffer )
 
