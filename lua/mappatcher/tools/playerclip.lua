@@ -1,8 +1,10 @@
+local TOOL = TOOL
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Collides only with players."
-
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 2000
 --------------------------------------------------------------------------------
-
 TOOL.TextureColor = Color(255,200,0,200)
 TOOL.TextureText = "#mappatcher.tools.playerclip.title"
 --------------------------------------------------------------------------------
@@ -16,4 +18,3 @@ end
 function TOOL:EntShouldCollide( ent )
     return ent:IsPlayer()
 end
---------------------------------------------------------------------------------

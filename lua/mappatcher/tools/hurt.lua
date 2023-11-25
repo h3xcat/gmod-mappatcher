@@ -1,12 +1,13 @@
 local TOOL = TOOL
-
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Damages entities overtime when they're inside the brush. There are 3 types of damage types. Generic damage type does basic damage. Poison damage type does damage similar to poison headcrab, the health will regenerate over time. Dissolve damage type works similarly to generic, except it will dissolve player bodies when they die."
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 8000
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(255,69,0,200)
 TOOL.TextureText = "#mappatcher.tools.hurt.title"
 --------------------------------------------------------------------------------
-
 function TOOL:ObjectCreated()
     TOOL:GetBase().ObjectCreated(self)
 
@@ -132,4 +133,3 @@ end
 function TOOL:EntShouldCollide( ent )
     return false
 end
---------------------------------------------------------------------------------

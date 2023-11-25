@@ -1,5 +1,9 @@
+local TOOL = TOOL
+--------------------------------------------------------------------------------
 TOOL.Version = 0
-
+TOOL.VisibleInMenu = false
+TOOL.MenuPriority = 9999999
+--------------------------------------------------------------------------------
 local Stream = MapPatcher.Libs.Stream
 
 function TOOL:IsObject()
@@ -108,10 +112,9 @@ end
 function TOOL:SetupObjectPanel( panel )
 end
 --------------------------------------------------------------------------------
---------------------------------------------------------------------------------
 function TOOL:EntSetup( ent )
 end
---------------------------------------------------------------------------------
+
 function TOOL:EntStartTouch( ent )
 end
 

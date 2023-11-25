@@ -165,8 +165,8 @@ do
         for k, data in pairs(tool_mats_queue) do
             local mat = data.mat
             local mat_name = data.mat_name
-            local color = data.color
-            local text = data.text
+            local color = data.color != nil and data.color or Color( 50, 50, 50, 255 )
+            local text = data.text != nil and data.text or mat_name
             local rt_tex = GetRenderTarget( mat_name, 256, 256, true )
             mat:SetTexture( "$basetexture", rt_tex )
 
@@ -205,16 +205,21 @@ function MapPatcher.GetToolMaterial( tool_type, noalpha )
     local tool_class = MapPatcher.Tools[tool_type]
     if not tool_class then print(tool_type) return material_error end
     if noalpha then
-        if tool_class.EditorMaterial then return tool_class.EditorMaterial end
+        local oldmat = rawget( tool_class, 'EditorMaterial' )
+        if oldmat then return oldmat end
+
         local texture_color = table.Copy( tool_class.TextureColor )
         texture_color.a = 255
-        tool_class.EditorMaterial = Editor.GenerateToolMaterial( "mappatcher_"..tool_type, texture_color, tool_class.TextureText )
-        return tool_class.EditorMaterial
+        local newmat = Editor.GenerateToolMaterial( "mappatcher_"..tool_type, texture_color, tool_class.TextureText )
+        rawset(tool_class, 'EditorMaterial', newmat )
+        return newmat
     else
-        if tool_class.EditorMaterialAlpha then return tool_class.EditorMaterialAlpha end
+        local oldmat = rawget( tool_class, 'EditorMaterialAlpha' )
+        if oldmat then return oldmat end
         
-        tool_class.EditorMaterialAlpha = Editor.GenerateToolMaterial( "mappatcher_"..tool_type.."_alpha", tool_class.TextureColor, tool_class.TextureText )
-        return tool_class.EditorMaterialAlpha
+        local newmat = Editor.GenerateToolMaterial( "mappatcher_"..tool_type.."_alpha", tool_class.TextureColor, tool_class.TextureText )
+        rawset(tool_class, 'EditorMaterialAlpha', newmat )
+        return newmat
     end
     return material_error
 end

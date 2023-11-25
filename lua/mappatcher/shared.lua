@@ -11,7 +11,9 @@ MapPatcher.Tools = {}
 MapPatcher.Objects = {}
 
 function MapPatcher.HasAccess( ply )
-    if not IsValid(ply) or not ply:IsPlayer() then return false end
+    if not IsValid(ply) then return false end
+    if not ply:IsPlayer() then return false end
+    if SERVER and not ply:IsFullyAuthenticated() then return false end
 
     if ulx and ULib.ucl.query( ply, "ulx mappatcher" ) then return true end
     if serverguard and serverguard.player:HasPermission( ply , "MapPatcher Editor") then return true end

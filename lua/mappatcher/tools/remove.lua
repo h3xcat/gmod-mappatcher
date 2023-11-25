@@ -1,5 +1,9 @@
+local TOOL = TOOL
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Removes any entities that touches this brush. Except for players, in which they would just silently die."
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 10000
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(255,0,0,200)
 TOOL.TextureText = "#mappatcher.tools.remove.title"
@@ -22,4 +26,3 @@ end
 function TOOL:EntShouldCollide( ent )
     return false
 end
---------------------------------------------------------------------------------

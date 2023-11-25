@@ -11,6 +11,7 @@ MapPatcher.Brushes = MapPatcher.Brushes or {}
 
 function MapPatcher.StartEditMode( ply )
     if not MapPatcher.HasAccess(ply) then return end
+    MsgN( "[MapPatcher] " .. ply:Nick() .. "<" .. ply:SteamID() .. "> entered edit mode ")
     net.Start( "mappatcher_editmode_start" )
     net.Send( ply )
 end
@@ -57,10 +58,13 @@ net.Receive( "mappatcher_submit", function( len, ply )
     if not MapPatcher.HasAccess( ply ) then return end
     local object_id = net.ReadUInt( 16 )
     local object_class = net.ReadString( )
+    local prev_object_str = "[" .. object_id .. "] <unknown>"
+    local new_object = false
 
     if object_id == 0 then
         -- Find slot in table to replace
         local new_object_id = #MapPatcher.Objects + 1
+        new_object = true
         for object_id, object in ipairs(MapPatcher.Objects) do
             if not IsValid(object) then
                 object:Terminate()
@@ -70,10 +74,11 @@ net.Receive( "mappatcher_submit", function( len, ply )
         end
         object_id = new_object_id
     else
-        local old_object = MapPatcher.Objects[object_id]
-        if not old_object then return end
-        if IsValid( old_object ) then 
-            old_object:Terminate()
+        local prev_object = MapPatcher.Objects[object_id]
+        if not prev_object then return end
+        if IsValid( prev_object ) then 
+            prev_object_str = tostring(prev_object)
+            prev_object:Terminate()
         end
     end
 
@@ -81,12 +86,23 @@ net.Receive( "mappatcher_submit", function( len, ply )
     object:ReadFromBuffer( BufferInterface("net") )
     object.ID = object_id
 
+    if object_class == 'null' then
+        MsgN( "[MapPatcher] " .. ply:Nick() .. "<" .. ply:SteamID() .. "> removed object " .. prev_object_str )
+    elseif new_object then
+        MsgN( "[MapPatcher] " .. ply:Nick() .. "<" .. ply:SteamID() .. "> created object " .. tostring(object))
+    elseif tostring(object) == prev_object_str then
+        MsgN( "[MapPatcher] " .. ply:Nick() .. "<" .. ply:SteamID() .. "> updated object " .. tostring(object))
+    else
+        MsgN( "[MapPatcher] " .. ply:Nick() .. "<" .. ply:SteamID() .. "> replaced object " .. prev_object_str .. " with " .. tostring(object))
+    end
+
     if object:ShouldSave() then
         MapPatcher.Objects[object_id] = object
         object:Initialize( )
         MapPatcher.NetworkObjects( {object} )
         MapPatcher.SaveObjectsToFile( )
     end
+    
 end )
 
 hook.Add( "PlayerInitialSpawn", "MapPatcher", function( ply )

@@ -1,7 +1,7 @@
+local TOOL = TOOL
 local quickhull = MapPatcher.Libs.quickhull
-
+--------------------------------------------------------------------------------
 TOOL.Base = "base"
-
 --------------------------------------------------------------------------------
 function TOOL:WriteToBuffer( buffer )
     local points = self.points
@@ -38,7 +38,6 @@ function TOOL:SessionReadFromBuffer( buffer, len )
     self.entity_id = buffer:ReadUInt16( )
     self.entity_cid = buffer:ReadUInt32( )
 end
-
 --------------------------------------------------------------------------------
 function TOOL:PreviewPaint( panel, w, h )
     local x, y = panel:LocalToScreen( 0, 0 )

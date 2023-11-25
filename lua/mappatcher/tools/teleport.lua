@@ -1,15 +1,13 @@
 local TOOL = TOOL
-
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Brush which teleport players when player touches the brush. Use \"TP Target\" to set destination, the name of the target must match with the name of teleport brush. When multiple targets exist with same name, a random target will be chosen to teleport player to. As of right now, if collisions between players are enabled and multiple players teleports to same spot, the players will get stuck. Thefore, it's better to place multiple teleport targets in mid air."
-
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 11000
 --------------------------------------------------------------------------------
-
 TOOL.TextureColor = Color(255,100,0,200)
 TOOL.TextureText = "#mappatcher.tools.teleport.title"
-
 --------------------------------------------------------------------------------
-
 function TOOL:WriteToBuffer( buffer )
     TOOL:GetBase().WriteToBuffer( self, buffer )
     buffer:WriteString( self.name )
@@ -78,4 +76,3 @@ end
 function TOOL:EntShouldCollide( ent )
     return false
 end
---------------------------------------------------------------------------------

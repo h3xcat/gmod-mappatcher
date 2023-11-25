@@ -14,6 +14,9 @@
 		"*.gitmodules",
 		"*.gitignore",
 		"*.git/*",
+		".gslt_token",
+		"docker-compose.yml",
+		"Dockerfile",
 		"dev/*"
 	]
 }

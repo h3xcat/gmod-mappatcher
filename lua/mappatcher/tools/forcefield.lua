@@ -1,5 +1,9 @@
+local TOOL = TOOL
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Works similarly to clip brush, but with addition of forcefield effect."
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 7000
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(100,100,255,200)
 TOOL.TextureText = "#mappatcher.tools.force_field.title"
@@ -83,4 +87,3 @@ function TOOL:EntImpactTrace( ent, trace, dmgtype, customimpactname )
     util.Effect( "AR2Impact", effectdata )
     return true
 end
---------------------------------------------------------------------------------

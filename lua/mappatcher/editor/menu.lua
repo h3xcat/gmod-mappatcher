@@ -82,16 +82,32 @@ function PANEL:Init()
     tools_list:SetSpaceY( 5 )
     tools_list:SetSpaceX( 5 )
 
-    for k, class_name in pairs(MapPatcher.Editor.Tools) do
-        local tool_class = MapPatcher.Tools[class_name]
-        if not tool_class then continue end
+
+    
+    local sortedTools = {}
+    for class_name, tool_class in pairs(MapPatcher.Tools) do
+        table.insert(sortedTools, {class_name = class_name, tool_class = tool_class})
+    end
+
+    table.sort(sortedTools, function(a, b)
+        local priorityA = a.tool_class.MenuPriority or 999999
+        local priorityB = b.tool_class.MenuPriority or 999999
+        return priorityA < priorityB
+    end)
+
+    for _, entry in ipairs(sortedTools) do
+        local class_name = entry.class_name
+        local tool_class = entry.tool_class
+        
+        if not tool_class.VisibleInMenu then continue end
+
         local tool_button = tools_list:Add( "DButton" )
         tool_button:SetSize( 87, 43 )
-        tool_button:SetText(tool_class.TextureText)
+        tool_button:SetText( tool_class.TextureText or ("<" .. class_name .. ">") )
         tool_button:SetTextColor( Color( 255, 255, 255 ) )
         tool_button:SetFont( "MapPatcherHelp" )
 
-        local button_color = table.Copy(tool_class.TextureColor)
+        local button_color = table.Copy(tool_class.TextureColor or Color(100,100,100))
         button_color.a = 255
         local button_color_dark = Color(button_color.r*0.7, button_color.g*0.7, button_color.b*0.7, 255 )
         
@@ -235,7 +251,7 @@ function PANEL:UpdateMenu( )
 
     local tool = MapPatcher.Editor.Tool
     local tool_class = MapPatcher.Tools[tool]
-    self.info_richtext:SetText(tool_class.Description)
+    self.info_richtext:SetText( tool_class.Description or "No description available." )
     timer.Simple(0, function() self.info_richtext:GotoTextStart() end)
 
     function self.preview_panel:Paint( w, h )

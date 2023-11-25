@@ -1,13 +1,13 @@
 local TOOL = TOOL
-
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "A combination of various other tools + extra. Probably something I should have done initially."
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 1000
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(155,155,155,200)
 TOOL.TextureText = "#mappatcher.tools.custom.title"
-
 --------------------------------------------------------------------------------
-
 function TOOL:WriteToBuffer( buffer )
     TOOL:GetBase().WriteToBuffer( self, buffer )
     self.data.color = self.color
@@ -50,7 +50,6 @@ function TOOL:ObjectCreated()
     self.data = data
 
 end
-
 --------------------------------------------------------------------------------
 function TOOL:EntSetup( ent )
     ent:SetSolidFlags( FSOLID_CUSTOMBOXTEST + FSOLID_CUSTOMRAYTEST )
@@ -267,4 +266,3 @@ function TOOL:EntImpactTrace( ent, trace, dmgtype, customimpactname )
         return true
     end
 end
---------------------------------------------------------------------------------

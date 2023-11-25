@@ -8,7 +8,6 @@ ENV GAMEMODE="sandbox"
 ENV PORT="27015"
 ENV MAXPLAYERS="32"
 
-
 RUN \
   DEBIAN_FRONTEND=noninteractive sh -c '{ \
     set -e; \
@@ -35,16 +34,18 @@ RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.t
   && /steamcmd/steamcmd.sh +login anonymous +force_install_dir "${SERVERDIR}" +app_update 4020 validate +quit \
   && /steamcmd/steamcmd.sh +login anonymous +force_install_dir "${CONTENTDIR}" +app_update 232330 validate +quit
 
-COPY entrypoint.py /entrypoint.py
+COPY ./dev/server/entrypoint.py /entrypoint.py
 
-COPY users.txt ${SERVERDIR}/garrysmod/settings/users.txt
-COPY mount.cfg ${SERVERDIR}/garrysmod/cfg/mount.cfg
+COPY ./dev/server/users.txt ${SERVERDIR}/garrysmod/settings/users.txt
+COPY ./dev/server/mount.cfg ${SERVERDIR}/garrysmod/cfg/mount.cfg
 
 RUN mkdir -p "${SERVERDIR}/garrysmod/addons/" \
     && git clone https://github.com/TeamUlysses/ulx "${SERVERDIR}/garrysmod/addons/ulx/" \
-    && git clone https://github.com/TeamUlysses/ulib "${SERVERDIR}/garrysmod/addons/ulib/" \
-    && git clone https://github.com/h3xcat/gmod-mappatcher.git --recurse-submodules "${SERVERDIR}/garrysmod/addons/gmod-mappatcher/" 
+    && git clone https://github.com/TeamUlysses/ulib "${SERVERDIR}/garrysmod/addons/ulib/"
+# RUN git clone https://github.com/h3xcat/gmod-mappatcher.git --recurse-submodules "${SERVERDIR}/garrysmod/addons/gmod-mappatcher/" 
+COPY . ${SERVERDIR}/garrysmod/addons/gmod-mappatcher/
 
+COPY .gslt_token /.gslt_token
 
 # Expose ports
 EXPOSE 27015/tcp \

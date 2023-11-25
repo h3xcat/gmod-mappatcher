@@ -1,5 +1,9 @@
+local TOOL = TOOL
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Kill players on touch."
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 9000
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(255,0,0,200)
 TOOL.TextureText = "#mappatcher.tools.kill.title"
@@ -19,4 +23,3 @@ end
 function TOOL:EntShouldCollide( ent )
     return false
 end
---------------------------------------------------------------------------------

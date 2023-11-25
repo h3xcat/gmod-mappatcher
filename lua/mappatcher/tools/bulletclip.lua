@@ -1,5 +1,9 @@
+local TOOL = TOOL
+--------------------------------------------------------------------------------
 TOOL.Base = "base_brush"
 TOOL.Description = "Does not let the bullets to go pass through."
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 5000
 --------------------------------------------------------------------------------
 TOOL.TextureColor = Color(147,112,219,200)
 TOOL.TextureText = "#mappatcher.tools.bulletclip.title"
@@ -15,4 +19,3 @@ end
 function TOOL:EntShouldCollide( ent )
     return true
 end
---------------------------------------------------------------------------------

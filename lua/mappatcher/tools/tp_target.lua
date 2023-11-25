@@ -1,15 +1,13 @@
 local TOOL = TOOL
-
+--------------------------------------------------------------------------------
 TOOL.Base = "base_point"
 TOOL.Description = "Teleport target used by teleport brush. You can find more detail by reading description by selecting teleport brush. The teleport target will be oriented to the same direction as editor camera."
-
+TOOL.VisibleInMenu = true
+TOOL.MenuPriority = 12000
 --------------------------------------------------------------------------------
-
 TOOL.TextureColor = Color(255,100,0,150)
 TOOL.TextureText = "#mappatcher.tools.tp_target.title"
-
 --------------------------------------------------------------------------------
-
 function TOOL:PreviewPaint( panel, w, h )
     local x, y = panel:LocalToScreen( 0, 0 )
     cam.Start3D(Vector(-35,-35,74), Angle(35,45,0), 90, x, y, w, h)
@@ -95,4 +93,3 @@ function TOOL:ReadFromBuffer( buffer, len )
     self.ang = buffer:ReadUInt16()
     self.name = buffer:ReadString()
 end
---------------------------------------------------------------------------------

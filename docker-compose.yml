@@ -1,0 +1,13 @@
+version: '2'
+services:
+  gmod-server:
+    build: ./
+    container_name: gmod-server
+    ports:
+      - 27015:27015/tcp
+      - 27015:27015/udp
+      - 27005:27005/udp
+    labels:
+      com.centurylinklabs.watchtower.enable: "false"
+
+    restart: unless-stopped
