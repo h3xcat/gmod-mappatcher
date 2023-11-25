@@ -3,6 +3,8 @@
 import os
 import subprocess
 import winreg
+import tempfile
+import shutil
 
 APP_ROOT= os.path.dirname(os.path.abspath(__file__))
 WORKSHOP_ID = '1572250342'
@@ -43,8 +45,12 @@ def pack_addon(gmod_dir: str, addon_dir: str) -> str:
 
 def update_addon(gmod_dir: str, gma_path: str, workshop_id: str):
     gmpublish_path = os.path.join(gmod_dir, 'bin', 'gmpublish.exe')
-    command = [gmpublish_path, 'update', '-addon', gma_path, '-id', workshop_id]
-    subprocess.run(command, check=True)
+    with tempfile.TemporaryDirectory() as temp_dir:
+        local_gma_path = os.path.join(temp_dir, os.path.basename(gma_path))
+        shutil.copy(gma_path, local_gma_path)
+
+        command = [gmpublish_path, 'update', '-addon', local_gma_path, '-id', workshop_id]
+        subprocess.run(command, check=True)
 
 def main():
     try:
